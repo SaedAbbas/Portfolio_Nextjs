@@ -1,11 +1,17 @@
+'use client'
 import React from "react";
 import { Spotlight } from "./ui/spotlight";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
+import Image from "next/image";
+import { motion } from "motion/react";
 
 
 const Hero = () => {
+
+  const MotionImage = motion(Image);
+
   return (
     <div className="pb-20 pt-36">
       <div className="">
@@ -31,6 +37,17 @@ const Hero = () => {
         />
       </div>
       <div className="flex justify-center relative my-20 z-10 ">
+<MotionImage
+  src="/SAED.png"
+  alt="Saed Abbas"
+  width={200}
+  height={200}
+  className="rounded-full border-4 border-white shadow-2xl object-cover mb-8"
+  initial={{ opacity: 0, scale: 0.8, y: 40 }}
+  animate={{ opacity: 1, scale: 1, y: 0 }}
+  transition={{ duration: 1, ease: "easeOut" }}
+/>
+
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
             Dynamic Web Magic with Next.js
