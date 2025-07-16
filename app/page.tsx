@@ -5,13 +5,13 @@ import { FaHome } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <main className="mx-auto p-4 bg-black-100 text-white justify-center items-center flex flex-col overflow-hidden sm:px-10 px-5">
+    <main className="relative mx-auto bg-black-100 text-white justify-center items-center flex flex-col overflow-hidden sm:px-10 px-5">
       <div className="">
         <FloatingNav navItems={[
-          {name: 'Home', link: '/', icon: <FaHome/>},
-          {name: 'Home', link: '/', icon: <FaHome/>},
-          {name: 'Home', link: '/', icon: <FaHome/>},
-          {name: 'Home', link: '/', icon: <FaHome/>},
+          {name: 'About', link: '/About', icon: <FaHome/>},
+          {name: 'Projects', link: '/Projects', icon: <FaHome/>},
+          {name: 'Testimonials', link: '/Testimonials', icon: <FaHome/>},
+          {name: 'Contact', link: '/Contact', icon: <FaHome/>},
         ]} />
         <Hero />
         <Grid />
