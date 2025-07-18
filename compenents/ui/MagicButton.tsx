@@ -4,7 +4,7 @@ type MagicButtonProps = {
   title:string,
   icon:React.ReactNode,
   position?:string,
-  handleClick:() => void
+  handleClick?:() => void
   otherClasses?:string,
 }
 
