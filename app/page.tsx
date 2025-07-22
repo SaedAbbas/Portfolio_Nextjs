@@ -3,6 +3,7 @@ import Hero from "@/compenents/Hero";
 import { FloatingNav } from "@/compenents/ui/FloatingNav";
 import RecentProject from "@/compenents/RecentProject";
 import { navItems } from "@/data";
+import Clients from "@/compenents/Clients";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <Grid />
         <RecentProject />
+        <Clients />
       </div>
     </main>
   );
