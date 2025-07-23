@@ -4,6 +4,7 @@ import { FloatingNav } from "@/compenents/ui/FloatingNav";
 import RecentProject from "@/compenents/RecentProject";
 import { navItems } from "@/data";
 import Clients from "@/compenents/Clients";
+import Experience from "@/compenents/Experience";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Grid />
         <RecentProject />
         <Clients />
+        <Experience />
       </div>
     </main>
   );
