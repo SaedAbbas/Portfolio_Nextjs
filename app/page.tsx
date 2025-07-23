@@ -5,6 +5,8 @@ import RecentProject from "@/compenents/RecentProject";
 import { navItems } from "@/data";
 import Clients from "@/compenents/Clients";
 import Experience from "@/compenents/Experience";
+import Approach from "@/compenents/Approach";
+import Footer from "@/compenents/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
         <RecentProject />
         <Clients />
         <Experience />
+        <Approach />
+        <Footer />
       </div>
     </main>
   );
