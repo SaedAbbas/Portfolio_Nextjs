@@ -10,8 +10,8 @@ import Footer from "@/compenents/Footer";
 
 export default function Home() {
   return (
-    <main className="relative mx-auto bg-black-100 text-white justify-center items-center flex flex-col overflow-hidden sm:px-10 px-5">
-      <div className="">
+    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
+      <div className="max-w-7xl w-full">
         <FloatingNav navItems={navItems} />
         <Hero />
         <Grid />

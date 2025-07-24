@@ -4,10 +4,7 @@ import { Spotlight } from "./ui/spotlight";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
-import { motion } from "motion/react";
-import Image from "next/image";
-
-const MotionImage = motion(Image);
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -49,28 +46,14 @@ const Hero = () => {
           <p className="md:tracking-wider mt-4 mb-6 text-sm md:text-lg lg:text-2xl">
             Hi, I&apos;m Saed Abbas, a Next.js Developer based in Palestine - Gaza.
           </p>
-          <a href="#about">
+          <Link href="#about">
             <MagicButton
               title="Show my Work"
               icon={<FaLocationArrow />}
               position="right"
             />
-          </a>
+          </Link>
         </div>
-
-        {/* Image Section */}
-        <MotionImage
-          src="/SAED.png"
-          alt="Saed Abbas"
-          width={300}
-          height={300}
-          priority
-          className="rounded-full border-4 border-white shadow-2xl object-cover 
-            w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-full lg:h-full"
-          initial={{ opacity: 0, scale: 0.8, y: 40 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        />
       </div>
     </div>
   );
