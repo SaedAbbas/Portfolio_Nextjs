@@ -43,7 +43,7 @@ const FloatingImage = () => {
           alt="Saed Abbas"
           width={400}
           height={400}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover z-50"
           priority
         />
       </motion.div>
