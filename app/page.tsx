@@ -11,6 +11,7 @@ import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects ";
 import ClickSpark from "@/components/ui/ClickSpark ";
 import Navbar from "@/components/ui/FloatingNav";
+import MagicBento from "@/components/ui/MagicBento";
 
 const Home = () => {
   return (
@@ -25,7 +26,18 @@ const Home = () => {
         >
           <Navbar />
           <Hero />
-          <Grid />
+          <MagicBento 
+  textAutoHide={true}
+  enableStars={true}
+  enableSpotlight={true}
+  enableBorderGlow={true}
+  enableTilt={true}
+  enableMagnetism={true}
+  clickEffect={true}
+  spotlightRadius={300}
+  particleCount={12}
+  glowColor="132, 0, 255"
+/>
           <RecentProjects />
           <Clients />
           <Experience />
