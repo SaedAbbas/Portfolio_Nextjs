@@ -1,10 +1,12 @@
-'use client';
+"use client";
 import React from "react";
 import { Spotlight } from "./ui/spotlight";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -19,10 +21,7 @@ const Hero = () => {
           className="top-10 left-full h-[80vh] w-[50vw]"
           fill="purble"
         />
-        <Spotlight
-          className="top-28 left-80 h-[80vh] w-[50vw]"
-          fill="blue"
-        />
+        <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
       </div>
 
       {/* Grid Background */}
@@ -44,7 +43,8 @@ const Hero = () => {
             words="Transforming Concepts into Seamless User Experiences"
           />
           <p className="md:tracking-wider mt-4 mb-6 text-sm md:text-lg lg:text-2xl">
-            Hi, I&apos;m Saed Abbas, a Next.js Developer based in Palestine - Gaza.
+            Hi, I&apos;m Saed Abbas, a Next.js Developer based in Palestine -
+            Gaza.
           </p>
           <Link href="#about">
             <MagicButton
@@ -54,6 +54,31 @@ const Hero = () => {
             />
           </Link>
         </div>
+
+        {/* Image Section */}
+        {/* Image Section with looping animation */}
+        <motion.div
+          animate={{
+            y: [0, -10, 0], // floating up and down
+            scale: [1, 1.03, 1], // breathing effect
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+          className="w-44 h-44 sm:w-60 sm:h-60 lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-4 border-[#38BDF8] shadow-xl"
+        >
+          <Image
+            src="/SAED.PNG"
+            alt="Saed Abbas"
+            width={400}
+            height={400}
+            className="w-full h-full object-cover"
+            priority
+          />
+        </motion.div>
       </div>
     </div>
   );

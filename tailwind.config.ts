@@ -1,8 +1,8 @@
-import type { Config } from "tailwindcss"
-import svgToDataUri from "mini-svg-data-uri"
-import colors from "tailwindcss/colors"
-import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette"
-import tailwindcssAnimate from "tailwindcss-animate"
+import type { Config } from "tailwindcss";
+import svgToDataUri from "mini-svg-data-uri";
+import colors from "tailwindcss/colors";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 const config = {
   darkMode: ["class"],
@@ -25,11 +25,12 @@ const config = {
     extend: {
       colors: {
         black: {
-          DEFAULT: "#000",
-          100: "#000319",
-          200: "rgba(17, 25, 40, 0.75)",
-          300: "rgba(255, 255, 255, 0.125)",
+          DEFAULT: "#0B0C10", // أسود بفخامة خامة جلد داكن
+          100: "#0F1117", // درجة أفتح بشويّة توازن، ممتازة للخلفيات الداكنة
+          200: "rgba(18, 24, 38, 0.75)", // نفس الغامق السابق لكن بشفافية، ممتازة للـ overlay
+          300: "rgba(245, 245, 245, 0.07)", // لمسة ناعمة فاتحة كـ border subtle
         },
+
         white: {
           DEFAULT: "#FFF",
           100: "#BEC1DD",
@@ -73,9 +74,9 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-        animation: {
-    "spin-slow": "spin 8s linear infinite",
-  },
+      animation: {
+        "spin-slow": "spin 8s linear infinite",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -185,20 +186,20 @@ const config = {
           }),
         },
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-      )
+      );
     },
   ],
-} satisfies Config
+} satisfies Config;
 
 function addVariablesForColors({ addBase, theme }: any) {
-  const allColors = flattenColorPalette(theme("colors"))
+  const allColors = flattenColorPalette(theme("colors"));
   const newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  )
+  );
 
   addBase({
     ":root": newVars,
-  })
+  });
 }
 
-export default config
+export default config;

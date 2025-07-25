@@ -5,7 +5,7 @@
 @theme inline {
   --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
 }
- 
+
 @keyframes spotlight {
   0% {
     opacity: 0;
@@ -20,5 +20,8 @@
 @layer components {
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
+  }
+  * {
+    @apply !scroll-smooth;
   }
 }
