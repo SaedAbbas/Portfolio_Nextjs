@@ -21,7 +21,7 @@ export default function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-[#111] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+              className="bg-[#0c0324] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
             >
               <div className="relative w-full h-56">
                 <Image
