@@ -1,9 +1,6 @@
 "use client";
 
-import { navItems } from "@/data";
-
 import Hero from "@/components/Hero";
-import Grid from "@/components/Grid";
 import Footer from "@/components/Footer";
 import Clients from "@/components/Clients";
 import Approach from "@/components/Approach";
@@ -11,9 +8,8 @@ import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects ";
 import ClickSpark from "@/components/ui/ClickSpark ";
 import Navbar from "@/components/ui/FloatingNav";
-import MagicBento from "@/components/ui/MagicBento";
-import CircularGallery from "@/components/ui/CircularGallery";
 import Skills from "@/components/Skills";
+import MyProjects from "@/components/MyProjects";
 
 const Home = () => {
   return (
@@ -29,19 +25,8 @@ const Home = () => {
           <Navbar />
           <Hero />
           <Skills />
-          {/* <MagicBento
-            textAutoHide={true}
-            enableStars={true}
-            enableSpotlight={true}
-            enableBorderGlow={true}
-            enableTilt={true}
-            enableMagnetism={true}
-            clickEffect={true}
-            spotlightRadius={300}
-            particleCount={6}
-            glowColor="132, 0, 255"
-          /> */}
-          <RecentProjects />
+          <MyProjects />
+          {/* <RecentProjects /> */}
           <Clients />
           <Experience />
           <Approach />
