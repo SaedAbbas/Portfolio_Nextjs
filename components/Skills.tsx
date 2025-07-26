@@ -1,19 +1,29 @@
 import React from "react";
 import CircularGallery from "./ui/CircularGallery";
+import CircularGallerySmall from "./ui/CircularGallerySmall";
 
 const Skills = () => {
   return (
-    <div className="py-16 relative h-[700px]">
+    <div className="py-10 relative h-[600px]">
       <h1 className="heading">
         Core <span className="text-purple">Skills</span> & Expertise
-        
       </h1>
-      <CircularGallery
-        bend={2}
-        textColor="#ffffff"
-        borderRadius={0}
-        scrollEase={0.02}
-      />
+
+        <CircularGallery
+          bend={4}
+          textColor="#ffffff"
+          borderRadius={0}
+          scrollEase={0.08}
+        />
+
+      <div className="md:hidden block">
+        <CircularGallerySmall
+          bend={2}
+          textColor="#ffffff"
+          borderRadius={0}
+          scrollEase={0.2}
+        />
+      </div>
     </div>
   );
 };
