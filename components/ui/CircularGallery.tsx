@@ -533,6 +533,7 @@ class App {
       { image: "/strapi.png", text: "Strapi" },
       { image: "/git.png", text: "Git" },
       { image: "/gitHub.png", text: "GitHub" },
+      { image: "/figma.png", text: "Figma" },
     ];
 
     const galleryItems = items && items.length ? items : defaultItems;

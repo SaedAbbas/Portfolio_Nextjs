@@ -73,35 +73,48 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "https://github.com/adrianhajdin?tab=repositories",
+    title: "Airbnb Clone Web App",
+    des: "A full-featured clone of the Airbnb website built with modern front-end technologies, including property listings, search filters, and responsive design.",
+    img: "/airbnb.png", // ✨ تأكد من رفع صورة للمشروع بهذا الاسم داخل public
+    iconLists: [
+      "/next.svg",
+      "/tail.svg",
+      "/ts.svg",
+      "/redux.svg",
+      "/vercel.svg",
+    ],
+    link: "https://airbnb-clone-app-six.vercel.app/",
+    github: "https://github.com/SaedAbbas/airbnb-clone-app",
   },
   {
     id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-    img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "https://github.com/adrianhajdin/zoom-clone",
+    title: "Modern E-commerce Web App",
+    des: "A complete e-commerce platform built with Next.js, featuring dynamic product pages, shopping cart, and seamless user experience.",
+    img: "/store.png", // ✨ تأكد من رفع صورة للمشروع بهذا الاسم داخل public
+    iconLists: [
+      "/next.svg",
+      "/tail.svg",
+      "/ts.svg",
+      "/redux.svg",
+      "/vercel.svg",
+    ],
+    link: "https://e-commerce-nextjs-gules.vercel.app/",
+    github: "https://github.com/SaedAbbas/e-commerce-Nextjs",
   },
   {
     id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-    img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "https://github.com/adrianhajdin/ai_saas_app",
-  },
-  {
-    id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "https://github.com/adrianhajdin/iphone",
+    title: "Online Book Store Web App",
+    des: "A sleek and responsive book store application built with Next.js. Features book listings, categories, and a shopping cart experience.",
+    img: "/bookstore.png", // ✨ ارفع صورة للمشروع بهذا الاسم أو غيّره حسب الصورة اللي عندك
+    iconLists: [
+      "/next.svg",
+      "/tail.svg",
+      "/ts.svg",
+      "/redux.svg",
+      "/vercel.svg",
+    ],
+    link: "https://book-store-next-js-ly2l.vercel.app/",
+    github: "https://github.com/SaedAbbas/BookStore_Next.js",
   },
 ];
 

@@ -23,7 +23,11 @@ const MyProjects = () => {
     },
   ];
   return (
-    <div style={{ height: "600px", position: "relative" }}>
+    <div className="py-20 h-[600px] relative" style={{ height: "600px", position: "relative" }}>
+       <h1 className="heading my-8">
+        Here are some of {" "}
+        <span className="text-purple">my projects</span>
+      </h1>
       <ChromaGrid
         items={items}
         radius={300}

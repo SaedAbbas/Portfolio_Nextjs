@@ -402,10 +402,22 @@ class Media {
 
     const isMobile = this.screen.width < 768;
     const isTablet = this.screen.width >= 768 && this.screen.width < 1024;
-    this.scale = isMobile ? this.screen.height / 1000 : isTablet ? this.screen.height / 1200 : this.screen.height / 1500;
+    this.scale = isMobile
+      ? this.screen.height / 1000
+      : isTablet
+      ? this.screen.height / 1200
+      : this.screen.height / 1500;
 
-    this.plane.scale.y = (this.viewport.height * (isMobile ? 250 : isTablet ? 300 : 350) * this.scale) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (isMobile ? 250 : isTablet ? 300 : 350) * this.scale) / this.screen.width;
+    this.plane.scale.y =
+      (this.viewport.height *
+        (isMobile ? 250 : isTablet ? 300 : 350) *
+        this.scale) /
+      this.screen.height;
+    this.plane.scale.x =
+      (this.viewport.width *
+        (isMobile ? 250 : isTablet ? 300 : 350) *
+        this.scale) /
+      this.screen.width;
 
     this.plane.program.uniforms.uPlaneSizes.value = [
       this.plane.scale.x,
@@ -474,7 +486,8 @@ class App {
   ) {
     document.documentElement.classList.remove("no-js");
     this.container = container;
-    this.scrollSpeed = window.innerWidth < 768 ? scrollSpeed * 0.7 : scrollSpeed;
+    this.scrollSpeed =
+      window.innerWidth < 768 ? scrollSpeed * 0.7 : scrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
     this.createRenderer();
@@ -533,6 +546,7 @@ class App {
       { image: "/strapi.png", text: "Strapi" },
       { image: "/git.png", text: "Git" },
       { image: "/gitHub.png", text: "GitHub" },
+      { image: "/figma.png", text: "Figma" },
     ];
 
     const galleryItems = items && items.length ? items : defaultItems;
