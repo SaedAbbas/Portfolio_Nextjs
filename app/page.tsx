@@ -12,6 +12,8 @@ import RecentProjects from "@/components/RecentProjects ";
 import ClickSpark from "@/components/ui/ClickSpark ";
 import Navbar from "@/components/ui/FloatingNav";
 import MagicBento from "@/components/ui/MagicBento";
+import CircularGallery from "@/components/ui/CircularGallery";
+import Skills from "@/components/Skills";
 
 const Home = () => {
   return (
@@ -26,7 +28,8 @@ const Home = () => {
         >
           <Navbar />
           <Hero />
-          <MagicBento
+          <Skills />
+          {/* <MagicBento
             textAutoHide={true}
             enableStars={true}
             enableSpotlight={true}
@@ -37,7 +40,7 @@ const Home = () => {
             spotlightRadius={300}
             particleCount={6}
             glowColor="132, 0, 255"
-          />
+          /> */}
           <RecentProjects />
           <Clients />
           <Experience />
