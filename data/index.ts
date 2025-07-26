@@ -76,13 +76,7 @@ export const projects = [
     title: "Airbnb Clone Web App",
     des: "A full-featured clone of the Airbnb website built with modern front-end technologies, including property listings, search filters, and responsive design.",
     img: "/airbnb.png", // ✨ تأكد من رفع صورة للمشروع بهذا الاسم داخل public
-    iconLists: [
-      "/next.svg",
-      "/tail.svg",
-      "/ts.svg",
-      "/redux.svg",
-      "/vercel.svg",
-    ],
+    iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
     link: "https://airbnb-clone-app-six.vercel.app/",
     github: "https://github.com/SaedAbbas/airbnb-clone-app",
   },
@@ -91,13 +85,7 @@ export const projects = [
     title: "Modern E-commerce Web App",
     des: "A complete e-commerce platform built with Next.js, featuring dynamic product pages, shopping cart, and seamless user experience.",
     img: "/store.png", // ✨ تأكد من رفع صورة للمشروع بهذا الاسم داخل public
-    iconLists: [
-      "/next.svg",
-      "/tail.svg",
-      "/ts.svg",
-      "/redux.svg",
-      "/vercel.svg",
-    ],
+    iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
     link: "https://e-commerce-nextjs-gules.vercel.app/",
     github: "https://github.com/SaedAbbas/e-commerce-Nextjs",
   },
@@ -106,13 +94,7 @@ export const projects = [
     title: "Online Book Store Web App",
     des: "A sleek and responsive book store application built with Next.js. Features book listings, categories, and a shopping cart experience.",
     img: "/bookstore.png", // ✨ ارفع صورة للمشروع بهذا الاسم أو غيّره حسب الصورة اللي عندك
-    iconLists: [
-      "/next.svg",
-      "/tail.svg",
-      "/ts.svg",
-      "/redux.svg",
-      "/vercel.svg",
-    ],
+    iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
     link: "https://book-store-next-js-ly2l.vercel.app/",
     github: "https://github.com/SaedAbbas/BookStore_Next.js",
   },
