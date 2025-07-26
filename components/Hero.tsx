@@ -7,10 +7,11 @@ import { FaLocationArrow } from "react-icons/fa";
 import Link from "next/link";
 import { BackgroundLines } from "./ui/background-lines";
 import FloatingImage from "./AnimationImage";
+import BlurText from "./ui/BlurText";
 
 const Hero = () => {
   return (
-    <div className="relative pt-36 pb-20 z-40 max">
+    <div className="relative pt-36 pb-20 z-40 max" id="about">
       <BackgroundLines>
         {/* Spotlights */}
         <div>
@@ -43,11 +44,15 @@ const Hero = () => {
               filter={false}
               words="Turning Vision into Interactive Reality"
             />
-            <p className="md:tracking-wider mt-4 mb-6 text-sm md:text-lg lg:text-2xl">
-              Hey, I’m <span className="text-[#5010FE]">Saed Abbas</span> — a passionate front-end engineer from Gaza,
-              blending performance, interaction, and design with the power of
-              Next.js.
-            </p>
+            <BlurText
+              text="Hey, I’m Saed Abbas — a passionate Front-end engineer from Gaza, blending performance,
+              interaction, and design with the power of Next.js."
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="md:tracking-wider mt-4 mb-6 text-sm md:text-lg lg:text-2xl max-md:flex max-md:justify-center"
+            />
+
             <Link href="#about">
               <MagicButton
                 title="Show my Work"
