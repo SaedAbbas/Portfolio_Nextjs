@@ -6,7 +6,6 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { navItems } from "@/data";
 
-
 export default function Navbar() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -28,17 +27,24 @@ export default function Navbar() {
       animate={{ y: visible ? 0 : -100 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className={cn(
-        "fixed top-4 left-1/2 transform -translate-x-1/2 z-50",
-        "rounded-full px-2 md:px-6 py-3 backdrop-blur-lg shadow-xl max-md:mx-auto max-md:w-[100%-10px]",
-        "bg-[#2c00a7]"
+          "fixed top-4 left-1/2 transform -translate-x-1/2 z-50",
+          "rounded-full px-2 md:px-6 py-3 backdrop-blur-lg shadow-xl max-md:mx-auto max-md:w-[100%-10px]",
+        "bg-gradient-to-r from-[#5010FE] to-[#5010FE] max-md:mx-2 max-md:w-[calc(100%-16px)]",
+        "border border-white/10"
       )}
     >
-      <div className="flex items-center justify-center box-border gap-3 max-md:gap-0 text-white text-sm sm:text-base z-50">
+      <div className="flex items-center justify-center gap-4 max-md:gap-0 text-white text-sm md:text-base font-medium z-50">
         {navItems.map((item) => (
           <Link
             key={item.href}
-            href={`${item.href}`}
-            className="hover:font-medium box-border transition duration-100 px-2 py-1 rounded-3xl hover:bg-white hover:text-[#2c00a7] "
+            href={item.href}
+            className={cn(
+              "relative px-2 sm:px-3 sm:py-2 rounded-full transition-all duration-300",
+              "hover:bg-white/10 hover:text-white",
+              "after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2",
+              "after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300",
+              "hover:after:w-full"
+            )}
           >
             {item.label}
           </Link>

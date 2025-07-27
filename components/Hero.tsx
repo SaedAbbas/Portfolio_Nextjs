@@ -45,8 +45,7 @@ const Hero = () => {
               words="Turning Vision into Interactive Reality"
             />
             <BlurText
-              text="Hey, I’m Saed Abbas — a passionate Front-end engineer from Gaza, blending performance,
-              interaction, and design with the power of Next.js."
+              text="Hey, I’m Saed Abbas — a passionate Front-end engineer from Gaza, blending performance, interaction and design with the power of Next.js."
               delay={150}
               animateBy="words"
               direction="top"
