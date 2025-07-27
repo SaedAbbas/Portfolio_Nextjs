@@ -103,33 +103,38 @@ export const projects = [
 export const testimonials = [
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Working with Saed Abbas was an incredible experience. His professionalism, punctuality, and commitment to delivering outstanding results shone through in every aspect of our project. Saed's passion for development is truly remarkable. If you're looking to enhance your website and elevate your brand, Saed is the perfect partner.",
+    name: "Omar Khaled",
+    title: "Founder of Gaza Innovate",
+    image: 'https://randomuser.me/api/portraits/men/0.jpg'
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Collaborating with Saed Abbas was a pleasure from start to finish. His dedication to excellence and timely delivery made our project a success. Saed's enthusiasm for every detail of development sets him apart. I highly recommend him for anyone aiming to boost their online presence.",
+    name: "Ibrahim Mahmoud",
+    title: "Owner of Gaza Online Store",
+    image: 'https://randomuser.me/api/portraits/men/46.jpg'
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Saed Abbas brought unmatched professionalism to our project. His quick responses and focus on quality made working with him seamless. His passion for development is evident in his work. For anyone seeking to take their website or brand to the next level, Saed is the ideal choice.",
+    name: "Ahmed Yassin",
+    title: "Director of Future Youth Association",
+    image: 'https://randomuser.me/api/portraits/men/44.jpg'
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Partnering with Saed Abbas was a game-changer for our project. His professionalism and attention to detail ensured exceptional results. Saed's love for development makes him stand out. If you want to transform your website or brand, Saed is the one to trust.",
+    name: "Nour Al-Deen",
+    title: "Manager of Creativity Hub",
+    image: 'https://randomuser.me/api/portraits/men/75.jpg'
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Saed Abbas made our project a success with his professionalism and dedication. His ability to deliver high-quality work on time is impressive. His passion for development is contagious. For anyone looking to elevate their digital presence, Saed is the go-to expert.",
+    name: "Hassan Ziyad",
+    title: "Leader of Gaza Rises Initiative",
+    image: 'https://randomuser.me/api/portraits/men/86.jpg'
   },
 ];
 

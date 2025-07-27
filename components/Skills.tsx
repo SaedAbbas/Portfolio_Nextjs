@@ -6,7 +6,7 @@ const Skills = () => {
   return (
     <div className="py-10 relative h-[600px]">
       <h1 className="heading">
-        Core <span className="text-purple">Skills</span> & Expertise
+        Core <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5010FE] to-[#A78BFA]">Skills</span> & Expertise
       </h1>
 
         <CircularGallery

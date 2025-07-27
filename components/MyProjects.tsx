@@ -6,41 +6,94 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ProjectsSection() {
-  return (
-    <section id="projects" className="py-20 px-4 sm:px-10 text-white">
-      <div className="max-w-7xl mx-auto text-center">
-      <h1 className="heading my-12 mb-16">
-        Here are some of <span className="text-purple">my projects</span>
-      </h1>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+  const cardVariants = {
+    hidden: { opacity: 0, y: 60, rotateX: 15 },
+    visible: (i:number) => ({
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      transition: {
+        delay: i * 0.25,
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    }),
+    hover: {
+      scale: 1.06,
+      rotateY: 8,
+      boxShadow: "0 15px 40px rgba(80, 16, 254, 0.5)",
+      borderColor: "#5010FE",
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+    idle: {
+      y: [0, -8, 0],
+      boxShadow: [
+        "0 5px 20px rgba(80, 16, 254, 0.2)",
+        "0 10px 30px rgba(80, 16, 254, 0.4)",
+        "0 5px 20px rgba(80, 16, 254, 0.2)",
+      ],
+      transition: {
+        y: { repeat: Infinity, duration: 4, ease: "easeInOut" },
+        boxShadow: { repeat: Infinity, duration: 4, ease: "easeInOut" },
+      },
+    },
+  };
+
+  return (
+    <motion.section
+      id="projects"
+      className="py-24 px-4 sm:px-8 lg:px-12"
+    >
+      <div className="max-w-7xl mx-auto text-center">
+        <h1
+
+          className="text-4xl md:text-5xl font-extrabold mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#5010FE] to-[#A78BFA]"
+        >
+          Discover <span className="text-white">My Masterpieces</span>
+        </h1>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hover"
+              animate="idle"
+              variants={cardVariants}
               viewport={{ once: true }}
-              className="bg-[#0c0324] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+              className="relative bg-[#04071D] rounded-2xl overflow-hidden shadow-xl border border-[#5010FE]/30"
             >
-              <div className="relative w-full h-56">
+              <div className="relative w-full h-64 group overflow-hidden">
                 <Image
                   src={project.img}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#04071D]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
               </div>
 
-              <div className="p-5">
-                <h3 className="text-xl font-semibold mb-2">
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-3 text-white">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">{project.des}</p>
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                  {project.des}
+                </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
-                  {project.iconLists.map((icon, index) => (
-                    <Image key={index} src={icon} alt="tech" width={24} height={24} />
+                  {project.iconLists.map((icon, idx) => (
+                    <Image
+                      key={idx}
+                      src={icon}
+                      alt="tech"
+                      width={28}
+                      height={28}
+                      className="opacity-80"
+                    />
                   ))}
                 </div>
 
@@ -48,7 +101,7 @@ export default function ProjectsSection() {
                   <Link
                     href={project.link}
                     target="_blank"
-                    className="text-sm text-blue-400 hover:underline"
+                    className="inline-block px-5 py-2 text-sm font-medium text-white bg-[#5010FE] rounded-xl hover:bg-[#353a80] transition-colors duration-300"
                   >
                     Live Demo
                   </Link>
@@ -56,7 +109,7 @@ export default function ProjectsSection() {
                     <Link
                       href={project.github}
                       target="_blank"
-                      className="text-sm text-gray-400 hover:underline"
+                      className="inline-block px-5 py-2 text-sm font-medium text-white border border-[#5010FE] rounded-xl hover:bg-[#5010FE]/20 transition-colors duration-300"
                     >
                       GitHub
                     </Link>
@@ -67,9 +120,6 @@ export default function ProjectsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
-
-
-
