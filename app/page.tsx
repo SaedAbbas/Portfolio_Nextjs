@@ -1,7 +1,6 @@
 "use client";
 
 import Hero from "@/components/Hero";
-import Footer from "@/components/Footer";
 import Clients from "@/components/Clients";
 import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
@@ -9,6 +8,7 @@ import ClickSpark from "@/components/ui/ClickSpark ";
 import Navbar from "@/components/ui/FloatingNav";
 import Skills from "@/components/Skills";
 import MyProjects from "@/components/MyProjects";
+import Contact from "@/components/Contact";
 
 const Home = () => {
   return (
@@ -26,9 +26,9 @@ const Home = () => {
           <Skills />
           <MyProjects />
           <Clients />
-          {/* <Experience />
-          <Approach /> */}
-          <Footer />
+          {/* <Experience /> */}
+          {/* <Approach /> */}
+          <Contact />
         </ClickSpark>
       </div>
     </main>
