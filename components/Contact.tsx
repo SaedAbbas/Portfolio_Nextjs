@@ -118,7 +118,7 @@ const Contact = () => {
           title="Get in Touch"
           icon={<FaLocationArrow />}
           position="right"
-          handleClick={() => console.log("Get in Touch clicked")}
+          handleClick={() => window.location.href = 'mailto:saedabbas0@gmail.com'}
           className="bg-gradient-to-r from-[#5010FE] to-[#8B5CF6] hover:shadow-lg hover:shadow-[#5010FE]/50 transition-all duration-300"
         />
       </motion.div>
@@ -140,7 +140,7 @@ const Contact = () => {
           showUserInfo={true}
           enableTilt={true}
           enableMobileTilt={false}
-          onContactClick={() => console.log("Contact clicked")}
+          onContactClick={() => window.location.href = 'mailto:saedabbas0@gmail.com'}
         />
       </div>
     </motion.div>

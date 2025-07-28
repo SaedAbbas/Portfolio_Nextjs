@@ -206,21 +206,26 @@ export const socialMedia = [
   {
     id: 1,
     img: "/skill-icons--github-light.svg",
+    link:'https://github.com/SaedAbbas'
   },
   {
     id: 2,
     img: "/skill-icons--twitter.svg",
+    link:''
   },
   {
     id: 3,
     img: "/skill-icons--linkedin.svg",
+    link:'https://www.linkedin.com/in/saed-abbas-3aa31916a/'
   },
   {
     id: 4,
     img: "/logos--facebook.svg",
+    link:'https://www.facebook.com/sa15ed'
   },
   {
     id: 5,
     img: "/skill-icons--instagram.svg",
+    link:'https://www.instagram.com/saed.m.abbas/'
   },
 ];
