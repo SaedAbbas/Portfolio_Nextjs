@@ -129,12 +129,20 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         "--pointer-y": `${percentY}%`,
         "--background-x": `${adjust(percentX, 0, 100, 30, 70)}%`,
         "--background-y": `${adjust(percentY, 0, 100, 30, 70)}%`,
-        "--pointer-from-center": `${clamp(Math.hypot(percentY - 50, percentX - 50) / 50, 0, 1)}`,
+        "--pointer-from-center": `${clamp(
+          Math.hypot(percentY - 50, percentX - 50) / 50,
+          0,
+          1
+        )}`,
         "--pointer-from-top": `${percentY / 100}`,
         "--pointer-from-left": `${percentX / 100}`,
         "--rotate-x": `${round(-(centerX / 4))}deg`, // زيادة حساسية الدوران
         "--rotate-y": `${round(centerY / 3)}deg`,
-        "--shadow-opacity": `${clamp(Math.hypot(centerX, centerY) / 50, 0, 0.5)}`, // ظل ديناميكي
+        "--shadow-opacity": `${clamp(
+          Math.hypot(centerX, centerY) / 50,
+          0,
+          0.5
+        )}`, // ظل ديناميكي
       };
 
       Object.entries(properties).forEach(([property, value]) => {
@@ -248,7 +256,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
       animationHandlers.updateCardTransform(
         card.clientHeight / 2 + gamma * mobileTiltSensitivity,
-        card.clientWidth / 2 + (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
+        card.clientWidth / 2 +
+          (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
         card,
         wrap
       );
@@ -271,12 +280,18 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
     const handleClick = () => {
       if (!enableMobileTilt || location.protocol !== "https:") return;
-      if (typeof (window.DeviceMotionEvent as any).requestPermission === "function") {
+      if (
+        typeof (window.DeviceMotionEvent as any).requestPermission ===
+        "function"
+      ) {
         (window.DeviceMotionEvent as any)
           .requestPermission()
           .then((state: string) => {
             if (state === "granted") {
-              window.addEventListener("deviceorientation", deviceOrientationHandler);
+              window.addEventListener(
+                "deviceorientation",
+                deviceOrientationHandler
+              );
             }
           })
           .catch((err: any) => console.error(err));
@@ -327,14 +342,22 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         "--icon": iconUrl ? `url(${iconUrl})` : "none",
         "--grain": grainUrl ? `url(${grainUrl})` : "none",
         "--behind-gradient": showBehindGradient
-          ? (behindGradient ?? DEFAULT_BEHIND_GRADIENT)
+          ? behindGradient ?? DEFAULT_BEHIND_GRADIENT
           : "none",
         "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
         "--card-bg-color": theme === "dark" ? "#1a1a1a" : "#ffffff",
         "--text-color": theme === "dark" ? "#e0e0e0" : "#333333",
-        "--shadow-color": theme === "dark" ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.15)",
-      }) as React.CSSProperties,
-    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient, theme]
+        "--shadow-color":
+          theme === "dark" ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.15)",
+      } as React.CSSProperties),
+    [
+      iconUrl,
+      grainUrl,
+      showBehindGradient,
+      behindGradient,
+      innerGradient,
+      theme,
+    ]
   );
 
   const handleContactClick = useCallback(() => {
@@ -383,15 +406,17 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                     <div className="pc-status">{status}</div>
                   </div>
                 </div>
-                <button
-                  className="pc-contact-btn"
-                  onClick={handleContactClick}
-                  style={{ pointerEvents: "auto" }}
-                  type="button"
-                  aria-label={`Contact ${name || "user"}`}
-                >
-                  {contactText}
-                </button>
+                <a href="mailto:saedabbas0@gmail.com">
+                  <button
+                    className="pc-contact-btn"
+                    onClick={handleContactClick}
+                    style={{ pointerEvents: "auto" }}
+                    type="button"
+                    aria-label={`Contact ${name || "user"}`}
+                  >
+                    {contactText}
+                  </button>
+                </a>
               </div>
             )}
           </div>

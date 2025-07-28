@@ -205,14 +205,22 @@ export const workExperience = [
 export const socialMedia = [
   {
     id: 1,
-    img: "/git.svg",
+    img: "/skill-icons--github-light.svg",
   },
   {
     id: 2,
-    img: "/twit.svg",
+    img: "/skill-icons--twitter.svg",
   },
   {
     id: 3,
-    img: "/link.svg",
+    img: "/skill-icons--linkedin.svg",
+  },
+  {
+    id: 4,
+    img: "/logos--facebook.svg",
+  },
+  {
+    id: 5,
+    img: "/skill-icons--instagram.svg",
   },
 ];
