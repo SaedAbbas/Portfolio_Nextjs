@@ -98,7 +98,7 @@ const FloatingImage = () => {
 
         {/* Image */}
         <Image
-          src="/saed.png"
+          src="/saedabbas.png"
           alt="Saed Abbas"
           width={450}
           height={450}
