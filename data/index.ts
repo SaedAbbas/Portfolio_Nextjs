@@ -244,6 +244,6 @@ export const socialMedia = [
       { icon: "/zustand.png", label: "Zustand" },
       { icon: "/strapi.png", label: "Strapi" },
       { icon: "/git.png", label: "Git" },
-      { icon: "/gitHub.png", label: "GitHub" },
+      { icon: "/githubb.png", label: "GitHub" },
       { icon: "/figma.png", label: "Figma" },
     ];
