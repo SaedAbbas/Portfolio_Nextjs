@@ -75,7 +75,7 @@ export const projects = [
     id: 1,
     title: "Airbnb Clone Web App",
     des: "A full-featured clone of the Airbnb website built with modern front-end technologies, including property listings, search filters, and responsive design.",
-    img: "/airbnb.png", // ✨ تأكد من رفع صورة للمشروع بهذا الاسم داخل public
+    img: "/airbnb.png",
     iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
     link: "https://airbnb-clone-app-six.vercel.app/",
     github: "https://github.com/SaedAbbas/airbnb-clone-app",
@@ -84,7 +84,7 @@ export const projects = [
     id: 2,
     title: "Modern E-commerce Web App",
     des: "A complete e-commerce platform built with Next.js, featuring dynamic product pages, shopping cart, and seamless user experience.",
-    img: "/store.png", // ✨ تأكد من رفع صورة للمشروع بهذا الاسم داخل public
+    img: "/store.png",
     iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
     link: "https://e-commerce-nextjs-gules.vercel.app/",
     github: "https://github.com/SaedAbbas/e-commerce-Nextjs",
@@ -93,7 +93,7 @@ export const projects = [
     id: 3,
     title: "Online Book Store Web App",
     des: "A sleek and responsive book store application built with Next.js. Features book listings, categories, and a shopping cart experience.",
-    img: "/bookstore.png", // ✨ ارفع صورة للمشروع بهذا الاسم أو غيّره حسب الصورة اللي عندك
+    img: "/bookstore.png", 
     iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
     link: "https://book-store-next-js-ly2l.vercel.app/",
     github: "https://github.com/SaedAbbas/BookStore_Next.js",
@@ -229,3 +229,21 @@ export const socialMedia = [
     link:'https://www.instagram.com/saed.m.abbas/'
   },
 ];
+
+ export const skills = [
+      { icon: "/html.png", label: "HTML" },
+      { icon: "/css.png", label: "Css" },
+      { icon: "/js.png", label: "JavaScript" },
+      { icon: "/ts.png", label: "TypeScript" },
+      { icon: "/react.png", label: "React" },
+      { icon: "/next.png", label: "Next.js" },
+      { icon: "/tailwind.png", label: "Tailwind CSS" },
+      { icon: "/framermotion.png", label: "Framer Motion" },
+      { icon: "/redux.png", label: "Redux Toolkit" },
+      { icon: "/reactquery.png", label: "Tanstack Query" },
+      { icon: "/zustand.png", label: "Zustand" },
+      { icon: "/strapi.png", label: "Strapi" },
+      { icon: "/git.png", label: "Git" },
+      { icon: "/gitHub.png", label: "GitHub" },
+      { icon: "/figma.png", label: "Figma" },
+    ];
