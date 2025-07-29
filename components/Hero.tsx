@@ -36,7 +36,7 @@ const Hero = () => {
           {/* Text Section */}
           <div className="max-w-[90vw] md:max-w-xl lg:max-w-2xl flex flex-col items-center md:items-start text-center md:text-left">
             <h2 className="uppercase tracking-widest text-xs text-blue-100 mb-2">
-              Crafted Interfaces - Powered by Code.{" "}
+              Crafted Interfaces - Powered by Code{" "}
             </h2>
             <TextGenerateEffect
               className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl"
@@ -45,7 +45,7 @@ const Hero = () => {
               words="Turning Vision into Interactive Reality"
             />
             <BlurText
-              text="Hey, I’m Saed Abbas — a passionate Front-end engineer from Gaza, blending performance, interaction and design with the power of Next.js."
+              text="Hey, I’m Saed Abbas — a passionate Software engineer from Gaza, blending performance, interaction and design with the power of Next.js"
               delay={150}
               animateBy="words"
               direction="top"
