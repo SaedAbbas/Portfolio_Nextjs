@@ -27,7 +27,7 @@ export default function Navbar() {
       animate={{ y: visible ? 0 : -100 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className={cn(
-        "fixed top-4 left-1/2 transform -translate-x-1/2 z-50 rounded-full px-8 md:px-6 py-3 backdrop-blur-lg shadow-xl bg-gradient-to-r from-[#5010FE] to-[#5821f2] max-md:mx-2 max-md:w-[calc(100%-16px)]",
+        "fixed top-4 left-1/2 transform -translate-x-1/2 z-50 rounded-full md:px-6 py-3 backdrop-blur-lg shadow-xl bg-gradient-to-r from-[#5010FE] to-[#5821f2] max-sm:mr-2 max-md:w-[calc(100%-16px)]",
         "border border-white/10"
       )}
     >
