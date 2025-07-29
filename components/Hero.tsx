@@ -52,7 +52,7 @@ const Hero = () => {
               className="md:tracking-wider mt-4 mb-6 text-sm md:text-lg lg:text-2xl max-md:flex max-md:justify-center"
             />
 
-            <Link href="#about">
+            <Link href="#projects">
               <MagicButton
                 title="Show my Work"
                 icon={<FaLocationArrow />}

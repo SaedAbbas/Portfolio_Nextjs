@@ -29,7 +29,7 @@ export default function Navbar() {
       className={cn(
           "fixed top-4 left-1/2 transform -translate-x-1/2 z-50",
           "rounded-full px-2 md:px-6 py-3 backdrop-blur-lg shadow-xl max-md:mx-auto max-md:w-[100%-10px]",
-        "bg-gradient-to-r from-[#5010FE] to-[#5010FE] max-md:mx-2 max-md:w-[calc(100%-16px)]",
+        "bg-gradient-to-r from-[#5010FE] to-[#5821f2] max-md:mx-2 max-md:w-[calc(100%-16px)]",
         "border border-white/10"
       )}
     >
