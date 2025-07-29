@@ -6,10 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ProjectsSection() {
-
   const cardVariants = {
     hidden: { opacity: 0, y: 60, rotateX: 15 },
-    visible: (i:number) => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       rotateX: 0,
@@ -41,16 +40,13 @@ export default function ProjectsSection() {
   };
 
   return (
-    <motion.section
-      id="projects"
-      className="py-24 px-4 sm:px-8 lg:px-12"
-    >
+    <motion.section id="projects" className="py-24 px-4 sm:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto text-center">
-        <h1
-
-          className="text-4xl md:text-5xl font-extrabold mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#5010FE] to-[#A78BFA]"
-        >
+        <h1 className="max-md:hidden text-4xl md:text-5xl font-extrabold mb-16 bg-clip-text text-transparent bg-gradient-to-r from-[#5010FE] to-[#A78BFA]">
           Discover <span className="text-white">My Masterpieces</span>
+        </h1>
+        <h1 className="md:hidden text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#5010FE] to-[#8B5CF6]">
+          Discover My Projects
         </h1>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -66,7 +62,7 @@ export default function ProjectsSection() {
               viewport={{ once: true }}
               className="relative bg-[#04071D] rounded-2xl overflow-hidden shadow-xl border border-[#5010FE]/30"
             >
-              <div className="relative w-full h-64 group overflow-hidden">
+              <div className="relative w-full h-48 md:h-64 group overflow-hidden">
                 <Image
                   src={project.img}
                   alt={project.title}
@@ -77,10 +73,10 @@ export default function ProjectsSection() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-white">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 text-[#e1daf4] ">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed max-md:line-clamp-2">
                   {project.des}
                 </p>
 
@@ -90,8 +86,8 @@ export default function ProjectsSection() {
                       key={idx}
                       src={icon}
                       alt="tech"
-                      width={28}
-                      height={28}
+                      width={20}
+                      height={20}
                       className="opacity-80"
                     />
                   ))}

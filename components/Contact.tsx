@@ -74,108 +74,114 @@ const Contact = () => {
       </div>
 
       {/* Main Content */}
-<motion.div
-  className="container relative mx-auto px-4 sm:px-6 lg:px-8 min-h-screen bg-gradient-to-b from-[#0a0e1f] to-[#1a1e3a] rounded-2xl"
-  variants={containerVariants}
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.2 }}
->
-  {/* Header Section */}
-  <motion.div
-    className="text-center mb-12"
-    variants={itemVariants}
-  >
-    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-      Unleash Your{" "}
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5010FE] to-[#8B5CF6]">
-        Digital Potential
-      </span>
-    </h1>
-  </motion.div>
+        {/* Header Section */}
+        <motion.div className="text-center mb-12" variants={itemVariants}>
+          <h1 className="max-md:hidden text-4xl sm:text-5xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+            Let’s Build Something Awesome - {" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5010FE] to-[#8B5CF6]">
+              Contact Me Now
+            </span>
+          </h1>
+          <h1 className="md:hidden text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#5010FE] to-[#8B5CF6]">
+              Contact Me Now
+          </h1>
 
-  {/* Main Content Split */}
-  <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-    {/* Creative Left Section */}
-    <motion.div
-      className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
-      variants={itemVariants}
-    >
-      <motion.h2
-        className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4"
-        variants={itemVariants}
+        </motion.div>
+      <motion.div
+        className="container relative mx-auto px-4 py-8 sm:px-6 lg:px-8  bg-gradient-to-b from-[#0a0e1f] to-[#1a1e3a] rounded-2xl"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
-        Innovate. Create. Celebrate.
-      </motion.h2>
-      <motion.p
-        className="text-gray-400 text-sm sm:text-base mb-6 max-w-md"
-        variants={itemVariants}
-      >
-        Join me on a journey to transform your vision into reality with cutting-edge solutions and creative brilliance.
-      </motion.p>
-      <motion.div variants={itemVariants}>
-        <MagicButton
-          title="Get in Touch"
-          icon={<FaLocationArrow />}
-          position="right"
-          handleClick={() => window.location.href = 'mailto:saedabbas0@gmail.com'}
-          className="bg-gradient-to-r from-[#5010FE] to-[#8B5CF6] hover:shadow-lg hover:shadow-[#5010FE]/50 transition-all duration-300"
-        />
+
+        {/* Main Content Split */}
+        <div className="flex flex-col-reverse lg:flex-row items-center lg:justify-between justify-center gap-12">
+          {/* Creative Left Section */}
+          <motion.div
+            className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
+            variants={itemVariants}
+          >
+            <motion.h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4"
+              variants={itemVariants}
+            >
+              Connect for Epic Collaborations
+            </motion.h2>
+            <motion.p
+              className="text-gray-400 text-sm sm:text-base mb-6 max-w-md"
+              variants={itemVariants}
+            >
+              Join me on a journey to transform your vision into reality with
+              cutting-edge solutions and creative brilliance.
+            </motion.p>
+            <motion.div variants={itemVariants}>
+              <MagicButton
+                title="Get in Touch"
+                icon={<FaLocationArrow />}
+                position="right"
+                handleClick={() =>
+                  (window.location.href = "mailto:saedabbas0@gmail.com")
+                }
+                className="bg-gradient-to-r from-[#5010FE] to-[#8B5CF6] hover:shadow-lg hover:shadow-[#5010FE]/50 transition-all duration-300"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Profile Card on the Right */}
+          <motion.div
+            className="w-full lg:w-1/2 flex justify-center lg:justify-end"
+            variants={itemVariants}
+          >
+            <div className="w-full  sm:max-w-[400px] flex items-center justify-center">
+              <ProfileCard
+                name="Saed Abbas"
+                title="Software Engineer"
+                handle="Abu Al Soos"
+                status="Online"
+                contactText="Contact Me"
+                avatarUrl="/saed2.png"
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() =>
+                  (window.location.href = "mailto:saedabbas0@gmail.com")
+                }
+              />
+            </div>
+          </motion.div>
+        </div>
       </motion.div>
-    </motion.div>
 
-    {/* Profile Card on the Right */}
-    <motion.div
-      className="w-full lg:w-1/2 flex justify-center lg:justify-end"
-      variants={itemVariants}
-    >
-      <div className="w-full max-w-[320px] sm:max-w-[400px]">
-        <ProfileCard
-          name="Saed Abbas"
-          title="Software Engineer"
-          handle="Abu Al Soos"
-          status="Online"
-          contactText="Contact Me"
-          avatarUrl="/saed2.png"
-          showUserInfo={true}
-          enableTilt={true}
-          enableMobileTilt={false}
-          onContactClick={() => window.location.href = 'mailto:saedabbas0@gmail.com'}
-        />
-      </div>
-    </motion.div>
-  </div>
-  </motion.div>
-
-  {/* Footer Bottom */}
-  <motion.div
-    className="mt-16 flex flex-col md:flex-row max-md:flex-col-reverse justify-between items-center gap-8 border-t border-[#5010FE]/20 pt-8"
-    variants={itemVariants}
-  >
-    <p className="text-gray-400 text-sm sm:text-base font-light">
-      Copyright © {new Date().getFullYear()} Saed Abbas | All Rights Reserved
-    </p>
-    <div className="flex items-center gap-4">
-      {socialMedia.map((info) => (
-        <a
-          key={info.id}
-          href={info.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-12 h-12 flex justify-center items-center rounded-full bg-[#0a0e1f] border border-[#5010FE]/50 hover:bg-[#5010FE]/50 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-[#5010FE]/30"
-        >
-          <img
-            src={info.img}
-            alt={info.name}
-            width={24}
-            height={24}
-            className="object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
-          />
-        </a>
-      ))}
-    </div>
-</motion.div>
-
+      {/* Footer Bottom */}
+      <motion.div
+        className="mt-16 flex flex-col md:flex-row max-md:flex-col-reverse justify-between items-center gap-8 border-t border-[#5010FE]/20 pt-8"
+        variants={itemVariants}
+      >
+        <p className="text-gray-400 text-sm sm:text-base font-light">
+          Copyright © {new Date().getFullYear()} Saed Abbas | All Rights
+          Reserved
+        </p>
+        <div className="flex items-center gap-4">
+          {socialMedia.map((info) => (
+            <a
+              key={info.id}
+              href={info.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex justify-center items-center rounded-full bg-[#0a0e1f] border border-[#5010FE]/50 hover:bg-[#5010FE]/50 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-[#5010FE]/30"
+            >
+              <img
+                src={info.img}
+                alt={info.name}
+                width={24}
+                height={24}
+                className="object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+              />
+            </a>
+          ))}
+        </div>
+      </motion.div>
 
       {/* Custom CSS for Animations */}
       <style jsx>{`
