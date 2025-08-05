@@ -104,7 +104,7 @@ export const projects = [
     des: "A modern and responsive movie website built with Next.js. Features movie listings, search functionality, categories, and detailed movie pages.",
     img: "/movies.png",
     iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
-    link: "https://movieswesite.vercel.app/",
+    link: "https://movies-app-woad-beta.vercel.app/",
     github: "https://github.com/SaedAbbas/Movies_app",
   },
 ];
