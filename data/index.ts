@@ -82,6 +82,15 @@ export const projects = [
   },
   {
     id: 2,
+    title: "Movie Streaming Web App",
+    des: "A modern and responsive movie website built with Next.js. Features movie listings, search functionality, categories, and detailed movie pages.",
+    img: "/movies.png",
+    iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
+    link: "https://movies-app-sable-two.vercel.app/",
+    github: "https://github.com/SaedAbbas/Movies_App",
+  },
+  {
+    id: 3,
     title: "Modern E-commerce Web App",
     des: "A complete e-commerce platform built with Next.js, featuring dynamic product pages, shopping cart, and seamless user experience.",
     img: "/store.png",
@@ -90,22 +99,13 @@ export const projects = [
     github: "https://github.com/SaedAbbas/e-commerce-Nextjs",
   },
   {
-    id: 3,
+    id: 4,
     title: "Online Book Store Web App",
     des: "A sleek and responsive book store application built with Next.js. Features book listings, categories, and a shopping cart experience.",
     img: "/bookstore.png",
     iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
     link: "https://book-store-next-js-ly2l.vercel.app/",
     github: "https://github.com/SaedAbbas/BookStore_Next.js",
-  },
-  {
-    id: 3,
-    title: "Movie Streaming Web App",
-    des: "A modern and responsive movie website built with Next.js. Features movie listings, search functionality, categories, and detailed movie pages.",
-    img: "/movies.png",
-    iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
-    link: "https://movies-app-sable-two.vercel.app/",
-    github: "https://github.com/SaedAbbas/Movies_app",
   },
 ];
 
