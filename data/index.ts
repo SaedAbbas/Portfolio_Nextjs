@@ -103,7 +103,7 @@ export const projects = [
     title: "Modern E-commerce Web App",
     des: "A complete e-commerce platform built with Next.js, featuring dynamic product pages, shopping cart, and seamless user experience.",
     img: "/store.png",
-    iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
+    iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png","/strapi.png"],
     link: "https://e-commerce-nextjs-gules.vercel.app/",
     github: "https://github.com/SaedAbbas/e-commerce-Nextjs",
   },
