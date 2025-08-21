@@ -2,8 +2,6 @@
 
 import Hero from "@/components/Hero";
 import Clients from "@/components/Clients";
-import Approach from "@/components/Approach";
-import Experience from "@/components/Experience";
 import ClickSpark from "@/components/ui/ClickSpark ";
 import Navbar from "@/components/ui/FloatingNav";
 import Skills from "@/components/Skills";
@@ -26,8 +24,6 @@ const Home = () => {
           <Skills />
           <MyProjects />
           <Clients />
-          {/* <Experience /> */}
-          {/* <Approach /> */}
           <Contact />
         </ClickSpark>
       </div>
