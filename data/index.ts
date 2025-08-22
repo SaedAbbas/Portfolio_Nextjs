@@ -248,3 +248,20 @@ export const socialMedia = [
   },
 ];
 
+export const skills = [
+  { icon: "/html.png", label: "HTML" },
+  { icon: "/css.png", label: "Css" },
+  { icon: "/js.png", label: "JavaScript" },
+  { icon: "/ts.png", label: "TypeScript" },
+  { icon: "/react.png", label: "React" },
+  { icon: "/next.png", label: "Next.js" },
+  { icon: "/tailwind.png", label: "Tailwind CSS" },
+  { icon: "/framermotion.png", label: "Framer Motion" },
+  { icon: "/redux.png", label: "Redux Toolkit" },
+  { icon: "/reactquery.png", label: "Tanstack Query" },
+  { icon: "/zustand.png", label: "Zustand" },
+  { icon: "/strapi.png", label: "Strapi" },
+  { icon: "/git.png", label: "Git" },
+  { icon: "/githubb.png", label: "GitHub" },
+  { icon: "/figma.png", label: "Figma" },
+];
