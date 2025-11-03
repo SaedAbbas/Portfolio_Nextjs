@@ -3,10 +3,10 @@
 import Hero from "@/components/Hero";
 import Clients from "@/components/Clients";
 import ClickSpark from "@/components/ui/ClickSpark ";
-import Navbar from "@/components/ui/FloatingNav";
 import Skills from "@/components/Skills";
 import MyProjects from "@/components/MyProjects";
 import Contact from "@/components/Contact";
+import Navbar from "@/components/FloatingNav";
 
 const Home = () => {
   return (

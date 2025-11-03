@@ -532,7 +532,7 @@ class App {
       { image: "/zustand.png", text: "Zustand" },
       { image: "/strapi.png", text: "Strapi" },
       { image: "/git.png", text: "Git" },
-      { image: "/gitHub.png", text: "GitHub" },
+      { image: "/githubb.png", text: "GitHub" },
       { image: "/figma.png", text: "Figma" },
     ];
 
@@ -684,7 +684,7 @@ export default function CircularGallery({
   bend = 3,
   textColor = "#ffffff",
   borderRadius = 0.03,
-  font = "bold 40px Figtree",
+  font = "bold 60px Figtree",
   scrollSpeed = 1.5,
   scrollEase = 0.05,
 }: CircularGalleryProps) {
@@ -693,7 +693,7 @@ export default function CircularGallery({
   useEffect(() => {
     if (!containerRef.current) return;
     const isMobile = window.innerWidth < 768;
-    const adjustedFont = isMobile ? "bold 24px Figtree" : font;
+    const adjustedFont = isMobile ? "bold 36px Figtree" : font;
     const adjustedBorderRadius = isMobile ? 0.02 : borderRadius;
     const adjustedScrollSpeed = isMobile ? scrollSpeed * 0.7 : scrollSpeed;
 
