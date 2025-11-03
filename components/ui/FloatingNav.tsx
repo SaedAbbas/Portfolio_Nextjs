@@ -10,6 +10,8 @@ export default function Navbar() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
+
+  // هاد اليوز افكت بيضيف لينا تأثير الظهور والاختفاء للناف بار لما بنعمل سكرول
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
@@ -20,6 +22,8 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
+
+  
 
   return (
     <motion.nav
@@ -41,7 +45,7 @@ export default function Navbar() {
               "hover:bg-white/10 hover:text-white",
               "after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2",
               "after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-300",
-              "hover:after:w-full"
+              "hover:after:w-65/100"
             )}
           >
             {item.label}
