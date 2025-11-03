@@ -40,7 +40,7 @@ function getFontSize(font: string): number {
 function createTextTexture(
   gl: GL,
   text: string,
-  font: string = "bold 60px Figtree",
+  font: string = "60px Figtree",
   color: string = "white"
 ): { texture: Texture; width: number; height: number } {
   const canvas = document.createElement("canvas");
@@ -57,7 +57,7 @@ function createTextTexture(
   const textHeight = Math.ceil(fontSize * 1.4);
 
   // زيادة الدقة لجودة عالية جداً
-  const scaleFactor = 8;
+  const scaleFactor = 16;
   canvas.width = (textWidth + 80) * scaleFactor;
   canvas.height = (textHeight + 80) * scaleFactor;
 
@@ -118,7 +118,7 @@ class Title {
     renderer,
     text,
     textColor = "#ffffff",
-    font = "bold 60px Figtree",
+    font = "60px Figtree",
   }: TitleProps) {
     autoBind(this);
     this.gl = gl;
@@ -266,7 +266,11 @@ class Media {
   }
 
   createShader() {
-    const texture = new Texture(this.gl, { generateMipmaps: true });
+    const texture = new Texture(this.gl, {
+      generateMipmaps: true,
+      minFilter: this.gl.LINEAR_MIPMAP_LINEAR,
+      magFilter: this.gl.LINEAR,
+    });
     this.program = new Program(this.gl, {
       depthTest: false,
       depthWrite: false,
@@ -715,7 +719,7 @@ export default function CircularGallery({
   useEffect(() => {
     if (!containerRef.current) return;
     const isMobile = window.innerWidth < 768;
-    const adjustedFont = isMobile ? "bold 48px Figtree" : font;
+  const adjustedFont = isMobile ? "48px Figtree" : font;
     const adjustedBorderRadius = isMobile ? 0.03 : borderRadius;
     const adjustedScrollSpeed = isMobile ? scrollSpeed * 0.8 : scrollSpeed;
 
