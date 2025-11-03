@@ -11,9 +11,9 @@ import { useEffect, useRef } from "react";
 
 type GL = Renderer["gl"];
 
-function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
+function debounce<T extends (...args: unknown[]) => void>(func: T, wait: number) {
   let timeout: number;
-  return function (this: any, ...args: Parameters<T>) {
+  return function (this: unknown, ...args: Parameters<T>) {
     window.clearTimeout(timeout);
     timeout = window.setTimeout(() => func.apply(this, args), wait);
   };
@@ -23,11 +23,11 @@ function lerp(p1: number, p2: number, t: number): number {
   return p1 + (p2 - p1) * t;
 }
 
-function autoBind(instance: any): void {
+function autoBind(instance: Record<string, unknown>): void {
   const proto = Object.getPrototypeOf(instance);
   Object.getOwnPropertyNames(proto).forEach((key) => {
     if (key !== "constructor" && typeof instance[key] === "function") {
-      instance[key] = instance[key].bind(instance);
+      (instance[key] as (...args: unknown[]) => unknown) = (instance[key] as (...args: unknown[]) => unknown).bind(instance);
     }
   });
 }
@@ -40,26 +40,26 @@ function getFontSize(font: string): number {
 function createTextTexture(
   gl: GL,
   text: string,
-  font: string = "bold 48px Figtree",
-  color: string = "black"
+  font: string = "bold 60px Figtree",
+  color: string = "white"
 ): { texture: Texture; width: number; height: number } {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
   if (!context) throw new Error("Could not get 2d context");
 
-  // تعديل حجم الخط بناءً على عرض الشاشة
   const isMobile = window.innerWidth < 768;
-  const fontSize = isMobile ? 24 : getFontSize(font);
+  const fontSize = isMobile ? 48 : getFontSize(font);
   const adjustedFont = font.replace(/\d+px/, `${fontSize}px`);
 
   context.font = adjustedFont;
   const metrics = context.measureText(text);
   const textWidth = Math.ceil(metrics.width);
-  const textHeight = Math.ceil(fontSize * 1.2);
+  const textHeight = Math.ceil(fontSize * 1.4);
 
-  const scaleFactor = 2;
-  canvas.width = (textWidth + 20) * scaleFactor;
-  canvas.height = (textHeight + 20) * scaleFactor;
+  // زيادة الدقة لجودة عالية جداً
+  const scaleFactor = 8;
+  canvas.width = (textWidth + 80) * scaleFactor;
+  canvas.height = (textHeight + 80) * scaleFactor;
 
   context.scale(scaleFactor, scaleFactor);
   context.font = adjustedFont;
@@ -67,13 +67,29 @@ function createTextTexture(
   context.textBaseline = "middle";
   context.textAlign = "center";
   context.clearRect(0, 0, canvas.width, canvas.height);
+
+  // تأثيرات خرافية للنص
+  context.shadowColor = 'rgba(255,255,255,0.8)';
+  context.shadowBlur = 8;
+  context.shadowOffsetX = 2;
+  context.shadowOffsetY = 2;
+
+  // إضافة تأثير توهج داخلي
+  context.strokeStyle = 'rgba(255,255,255,0.9)';
+  context.lineWidth = 3;
+  context.strokeText(
+    text,
+    canvas.width / 2 / scaleFactor,
+    canvas.height / 2 / scaleFactor
+  );
+
   context.fillText(
     text,
     canvas.width / 2 / scaleFactor,
     canvas.height / 2 / scaleFactor
   );
 
-  const texture = new Texture(gl, { generateMipmaps: false });
+  const texture = new Texture(gl, { generateMipmaps: true });
   texture.image = canvas;
   return { texture, width: canvas.width, height: canvas.height };
 }
@@ -101,8 +117,8 @@ class Title {
     plane,
     renderer,
     text,
-    textColor = "#545050",
-    font = "30px sans-serif",
+    textColor = "#ffffff",
+    font = "bold 60px Figtree",
   }: TitleProps) {
     autoBind(this);
     this.gl = gl;
@@ -149,11 +165,11 @@ class Title {
     });
     this.mesh = new Mesh(this.gl, { geometry, program });
     const aspect = width / height;
-    const textHeightScaled = this.plane.scale.y * 0.15;
+    const textHeightScaled = this.plane.scale.y * 0.3;
     const textWidthScaled = textHeightScaled * aspect;
     this.mesh.scale.set(textWidthScaled, textHeightScaled, 1);
     this.mesh.position.y =
-      -this.plane.scale.y * 0.5 - textHeightScaled * 0.5 - 0.05;
+      -this.plane.scale.y * 0.5 - textHeightScaled * 0.5 - 0.1;
     this.mesh.setParent(this.plane);
   }
 }
@@ -226,7 +242,7 @@ class Media {
     viewport,
     bend,
     textColor,
-    borderRadius = 0,
+    borderRadius = 0.05,
     font,
   }: MediaProps) {
     this.geometry = geometry;
@@ -250,7 +266,7 @@ class Media {
   }
 
   createShader() {
-    const texture = new Texture(this.gl, { generateMipmaps: false });
+    const texture = new Texture(this.gl, { generateMipmaps: true });
     this.program = new Program(this.gl, {
       depthTest: false,
       depthWrite: false,
@@ -261,9 +277,11 @@ class Media {
         uniform mat4 modelViewMatrix;
         uniform mat4 projectionMatrix;
         varying vec2 vUv;
+        varying vec3 vPosition;
 
         void main() {
           vUv = uv;
+          vPosition = position;
           gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
         }
       `,
@@ -273,13 +291,16 @@ class Media {
         uniform vec2 uPlaneSizes;
         uniform sampler2D tMap;
         uniform float uBorderRadius;
+        uniform float uTime;
+        uniform float uSpeed;
         varying vec2 vUv;
-        
+        varying vec3 vPosition;
+
         float roundedBoxSDF(vec2 p, vec2 b, float r) {
           vec2 d = abs(p) - b;
           return length(max(d, vec2(0.0))) + min(max(d.x, d.y), 0.0) - r;
         }
-        
+
         void main() {
           vec2 ratio = vec2(
             min((uPlaneSizes.x / uPlaneSizes.y) / (uImageSizes.x / uImageSizes.y), 1.0),
@@ -290,12 +311,12 @@ class Media {
             vUv.y * ratio.y + (1.0 - ratio.y) * 0.5
           );
           vec4 color = texture2D(tMap, uv);
-          
+
           float d = roundedBoxSDF(vUv - 0.5, vec2(0.5 - uBorderRadius), uBorderRadius);
           if(d > 0.0) {
             discard;
           }
-          
+
           gl_FragColor = color;
         }
       `,
@@ -368,7 +389,7 @@ class Media {
     }
 
     this.speed = scroll.current - scroll.last;
-    this.program.uniforms.uTime.value += 0.04;
+    this.program.uniforms.uTime.value += 0.06;
     this.program.uniforms.uSpeed.value = this.speed;
 
     const planeOffset = this.plane.scale.x / 2;
@@ -392,27 +413,21 @@ class Media {
     if (screen) this.screen = screen;
     if (viewport) {
       this.viewport = viewport;
-      if (this.plane.program.uniforms.uViewportSizes) {
-        this.plane.program.uniforms.uViewportSizes.value = [
-          this.viewport.width,
-          this.viewport.height,
-        ];
-      }
     }
 
     const isMobile = this.screen.width < 768;
     const isTablet = this.screen.width >= 768 && this.screen.width < 1024;
-    this.scale = isMobile ? this.screen.height / 1000 : isTablet ? this.screen.height / 1200 : this.screen.height / 1500;
+    this.scale = isMobile ? this.screen.height / 800 : isTablet ? this.screen.height / 1000 : this.screen.height / 1200;
 
-    this.plane.scale.y = (this.viewport.height * (isMobile ? 250 : isTablet ? 300 : 350) * this.scale) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (isMobile ? 250 : isTablet ? 300 : 350) * this.scale) / this.screen.width;
+    this.plane.scale.y = (this.viewport.height * (isMobile ? 300 : isTablet ? 350 : 400) * this.scale) / this.screen.height;
+    this.plane.scale.x = (this.viewport.width * (isMobile ? 300 : isTablet ? 350 : 400) * this.scale) / this.screen.width;
 
     this.plane.program.uniforms.uPlaneSizes.value = [
       this.plane.scale.x,
       this.plane.scale.y,
     ];
 
-    this.padding = isMobile ? 1 : 2;
+    this.padding = isMobile ? 1.5 : 2.5;
     this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
@@ -439,7 +454,7 @@ class App {
     last: number;
     position?: number;
   };
-  onCheckDebounce: (...args: any[]) => void;
+  onCheckDebounce: (...args: unknown[]) => void;
   renderer!: Renderer;
   gl!: GL;
   camera!: Camera;
@@ -464,19 +479,19 @@ class App {
     container: HTMLElement,
     {
       items,
-      bend = 1,
+      bend = 4,
       textColor = "#ffffff",
-      borderRadius = 0.03,
-      font = "bold 16px Figtree",
-      scrollSpeed = 1.5,
-      scrollEase = 0.05,
+      borderRadius = 0.05,
+      font = "bold 60px Figtree",
+      scrollSpeed = 2,
+      scrollEase = 0.08,
     }: AppConfig
   ) {
     document.documentElement.classList.remove("no-js");
     this.container = container;
-    this.scrollSpeed = window.innerWidth < 768 ? scrollSpeed * 0.7 : scrollSpeed;
+    this.scrollSpeed = window.innerWidth < 768 ? scrollSpeed * 0.8 : scrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
-    this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
+    this.onCheckDebounce = debounce(this.onCheck.bind(this), 150);
     this.createRenderer();
     this.createCamera();
     this.createScene();
@@ -488,16 +503,23 @@ class App {
   }
 
   createRenderer() {
-    this.renderer = new Renderer({ alpha: true });
+    this.renderer = new Renderer({ alpha: true, antialias: true });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
     this.container.appendChild(this.renderer.gl.canvas as HTMLCanvasElement);
+    (this.renderer.gl.canvas as HTMLCanvasElement).style.position = 'absolute';
+    (this.renderer.gl.canvas as HTMLCanvasElement).style.top = '0';
+    (this.renderer.gl.canvas as HTMLCanvasElement).style.left = '0';
+    (this.renderer.gl.canvas as HTMLCanvasElement).style.width = '100%';
+    (this.renderer.gl.canvas as HTMLCanvasElement).style.height = '100%';
+    (this.renderer.gl.canvas as HTMLCanvasElement).style.zIndex = '9999';
+    (this.renderer.gl.canvas as HTMLCanvasElement).style.pointerEvents = 'none';
   }
 
   createCamera() {
     this.camera = new Camera(this.gl);
-    this.camera.fov = 45;
-    this.camera.position.z = 20;
+    this.camera.fov = 50;
+    this.camera.position.z = 25;
   }
 
   createScene() {
@@ -506,8 +528,8 @@ class App {
 
   createGeometry() {
     this.planeGeometry = new Plane(this.gl, {
-      heightSegments: 50,
-      widthSegments: 100,
+      heightSegments: 100,
+      widthSegments: 200,
     });
   }
 
@@ -520,7 +542,7 @@ class App {
   ) {
     const defaultItems = [
       { image: "/html.png", text: "HTML" },
-      { image: "/css.png", text: "Css" },
+      { image: "/css.png", text: "CSS" },
       { image: "/js.png", text: "JavaScript" },
       { image: "/ts.png", text: "TypeScript" },
       { image: "/react.png", text: "React" },
@@ -567,7 +589,7 @@ class App {
   onTouchMove(e: MouseEvent | TouchEvent) {
     if (!this.isDown) return;
     const x = "touches" in e ? e.touches[0].clientX : e.clientX;
-    const distance = (this.start - x) * (this.scrollSpeed * 0.025);
+    const distance = (this.start - x) * (this.scrollSpeed * 0.03);
     this.scroll.target = (this.scroll.position ?? 0) + distance;
   }
 
@@ -580,8 +602,8 @@ class App {
     const wheelEvent = e as WheelEvent;
     const delta =
       wheelEvent.deltaY ||
-      (wheelEvent as any).wheelDelta ||
-      (wheelEvent as any).detail;
+      (wheelEvent as WheelEvent & { wheelDelta?: number }).wheelDelta ||
+      (wheelEvent as WheelEvent & { detail?: number }).detail;
     this.scroll.target += delta > 0 ? this.scrollSpeed : -this.scrollSpeed;
     this.onCheckDebounce();
   }
@@ -681,21 +703,21 @@ interface CircularGalleryProps {
 
 export default function CircularGallery({
   items,
-  bend = 3,
+  bend = 0,
   textColor = "#ffffff",
-  borderRadius = 0.03,
+  borderRadius = 0.05,
   font = "bold 60px Figtree",
-  scrollSpeed = 1.5,
-  scrollEase = 0.05,
+  scrollSpeed = 2,
+  scrollEase = 0.08,
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const isMobile = window.innerWidth < 768;
-    const adjustedFont = isMobile ? "bold 36px Figtree" : font;
-    const adjustedBorderRadius = isMobile ? 0.02 : borderRadius;
-    const adjustedScrollSpeed = isMobile ? scrollSpeed * 0.7 : scrollSpeed;
+    const adjustedFont = isMobile ? "bold 48px Figtree" : font;
+    const adjustedBorderRadius = isMobile ? 0.03 : borderRadius;
+    const adjustedScrollSpeed = isMobile ? scrollSpeed * 0.8 : scrollSpeed;
 
     const app = new App(containerRef.current, {
       items,
@@ -713,8 +735,9 @@ export default function CircularGallery({
 
   return (
     <div
-      className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing max-md:hidden"
+      className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing max-md:hidden relative"
       ref={containerRef}
+      style={{ zIndex: 9999 }}
     />
   );
 }
