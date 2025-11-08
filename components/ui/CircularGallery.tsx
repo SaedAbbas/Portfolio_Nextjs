@@ -741,7 +741,7 @@ export default function CircularGallery({
     <div
       className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing max-md:hidden relative"
       ref={containerRef}
-      style={{ zIndex: 9999 }}
+      style={{ zIndex: 20 }}
     />
   );
 }
