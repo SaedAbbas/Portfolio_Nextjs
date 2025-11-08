@@ -32,7 +32,7 @@ export const projects = [
     des: "Google Live Docs Clone – A collaborative document editing app built with Next.js 15, featuring a real-time text editor powered by Lexical, role-based access (viewer/editor), and modern UI with Tailwind CSS + shadcn/ui.",
     img: "/live-docs.png",
     iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
-    link: "live-docs-git-main-saed-abbas-projects.vercel.app/",
+    link: "https://live-docs-smoky-eight.vercel.app/",
     github: "https://github.com/SaedAbbas/Google_Docs_Clone",
   },
   {
