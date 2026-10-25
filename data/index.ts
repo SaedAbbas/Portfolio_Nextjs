@@ -1,3 +1,11 @@
+export const siteConfig = {
+  name: "Saed Abbas",
+  role: "Front-End Developer",
+  email: "saedabbas0@gmail.com",
+  location: "Gaza, Palestine",
+  github: "https://github.com/SaedAbbas",
+};
+
 export const navItems = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
@@ -6,50 +14,49 @@ export const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-
 export const projects = [
   {
     id: 1,
-    title: "Airbnb Clone Web App",
-    des: "A full-featured clone of the Airbnb website built with modern front-end technologies, including property listings, search filters, and responsive design.",
-    img: "/airbnb.png",
-    iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
+    title: "Airbnb Clone",
+    des: "A full-featured Airbnb clone with property listings, search filters, and a fully responsive booking experience.",
+    img: "/airbnb.webp",
+    tech: ["Next.js", "TypeScript", "Redux", "Tailwind"],
     link: "https://airbnb-clone-app-six.vercel.app/",
     github: "https://github.com/SaedAbbas/airbnb-clone-app",
   },
   {
     id: 2,
-    title: "Movie Streaming Web App",
-    des: "A modern and responsive movie website built with React.js. Features movie listings, search functionality, categories, and detailed movie pages.",
-    img: "/movies.png",
-    iconLists: ["/react.png", "/ts.png", "/redux.png", "/tailwind.png"],
-    link: "https://movies-app-sable-two.vercel.app/",
-    github: "https://github.com/SaedAbbas/Movies_App",
-  },
-  {
-    id: 3,
     title: "Google Live Docs",
-    des: "Google Live Docs Clone – A collaborative document editing app built with Next.js 15, featuring a real-time text editor powered by Lexical, role-based access (viewer/editor), and modern UI with Tailwind CSS + shadcn/ui.",
-    img: "/live-docs.png",
-    iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png"],
+    des: "A collaborative document editor with a real-time Lexical editor, role-based access (viewer / editor), and a modern shadcn/ui interface.",
+    img: "/live-docs.webp",
+    tech: ["Next.js 15", "TypeScript", "Lexical", "Tailwind"],
     link: "https://live-docs-smoky-eight.vercel.app/",
     github: "https://github.com/SaedAbbas/Google_Docs_Clone",
   },
   {
-    id: 4,
-    title: "Modern E-commerce Web App",
-    des: "A complete e-commerce platform built with Next.js, featuring dynamic product pages, shopping cart, and seamless user experience.",
-    img: "/store.png",
-    iconLists: ["/next.png", "/ts.png", "/redux.png", "/tailwind.png","/strapi.png"],
+    id: 3,
+    title: "Modern E-commerce",
+    des: "A complete e-commerce platform with dynamic product pages, a shopping cart, and a headless Strapi CMS backend.",
+    img: "/store.webp",
+    tech: ["Next.js", "TypeScript", "Redux", "Strapi"],
     link: "https://e-commerce-nextjs-gules.vercel.app/",
     github: "https://github.com/SaedAbbas/e-commerce-Nextjs",
   },
   {
+    id: 4,
+    title: "Movie Streaming App",
+    des: "A responsive movie platform with listings, search, categories, and detailed movie pages.",
+    img: "/movies.webp",
+    tech: ["React", "TypeScript", "Redux", "Tailwind"],
+    link: "https://movies-app-sable-two.vercel.app/",
+    github: "https://github.com/SaedAbbas/Movies_App",
+  },
+  {
     id: 5,
-    title: "Online Book Store Web App",
-    des: "A sleek and responsive book store application built with Next.js. Features book listings, categories, and a shopping cart experience.",
-    img: "/bookstore.png",
-    iconLists: ["/next.png", "/ts.png", "/tailwind.png"],
+    title: "Online Book Store",
+    des: "A sleek, responsive book store with categories, book listings, and a smooth shopping-cart flow.",
+    img: "/bookstore.webp",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
     link: "https://book-store-next-js-ly2l.vercel.app/",
     github: "https://github.com/SaedAbbas/BookStore_Next.js",
   },
@@ -58,84 +65,77 @@ export const projects = [
 export const testimonials = [
   {
     quote:
-      "Working with Saed Abbas was an incredible experience. His professionalism, punctuality, and commitment to delivering outstanding results shone through in every aspect of our project. Saed's passion for development is truly remarkable. If you're looking to enhance your website and elevate your brand, Saed is the perfect partner.",
+      "Working with Saed was an incredible experience. His professionalism, punctuality, and commitment to outstanding results shone through in every aspect of our project.",
     name: "Omar Khaled",
     title: "Founder of Gaza Innovate",
-    image: "https://randomuser.me/api/portraits/men/0.jpg",
   },
   {
     quote:
-      "Collaborating with Saed Abbas was a pleasure from start to finish. His dedication to excellence and timely delivery made our project a success. Saed's enthusiasm for every detail of development sets him apart. I highly recommend him for anyone aiming to boost their online presence.",
+      "Collaborating with Saed was a pleasure from start to finish. His dedication to excellence and timely delivery made our project a success.",
     name: "Ibrahim Mahmoud",
     title: "Owner of Gaza Online Store",
-    image: "https://randomuser.me/api/portraits/men/46.jpg",
   },
   {
     quote:
-      "Saed Abbas brought unmatched professionalism to our project. His quick responses and focus on quality made working with him seamless. His passion for development is evident in his work. For anyone seeking to take their website or brand to the next level, Saed is the ideal choice.",
+      "Saed brought unmatched professionalism to our project. His quick responses and focus on quality made working with him seamless.",
     name: "Ahmed Yassin",
     title: "Director of Future Youth Association",
-    image: "https://randomuser.me/api/portraits/men/44.jpg",
   },
   {
     quote:
-      "Partnering with Saed Abbas was a game-changer for our project. His professionalism and attention to detail ensured exceptional results. Saed's love for development makes him stand out. If you want to transform your website or brand, Saed is the one to trust.",
+      "Partnering with Saed was a game-changer. His attention to detail ensured exceptional results — he's the one to trust with your website.",
     name: "Nour Al-Deen",
     title: "Manager of Creativity Hub",
-    image: "https://randomuser.me/api/portraits/men/75.jpg",
   },
   {
     quote:
-      "Saed Abbas made our project a success with his professionalism and dedication. His ability to deliver high-quality work on time is impressive. His passion for development is contagious. For anyone looking to elevate their digital presence, Saed is the go-to expert.",
+      "Saed delivers high-quality work on time, every time. For anyone looking to elevate their digital presence, he's the go-to developer.",
     name: "Hassan Ziyad",
     title: "Leader of Gaza Rises Initiative",
-    image: "https://randomuser.me/api/portraits/men/86.jpg",
   },
 ];
-
 
 export const socialMedia = [
-  {
-    id: 1,
-    img: "/skill-icons--github-light.svg",
-    link: "https://github.com/SaedAbbas",
-  },
-  {
-    id: 2,
-    img: "/skill-icons--twitter.svg",
-    link: "",
-  },
-  {
-    id: 3,
-    img: "/skill-icons--linkedin.svg",
-    link: "https://www.linkedin.com/in/saed-abbas-3aa31916a/",
-  },
-  {
-    id: 4,
-    img: "/logos--facebook.svg",
-    link: "https://www.facebook.com/sa15ed",
-  },
-  {
-    id: 5,
-    img: "/skill-icons--instagram.svg",
-    link: "https://www.instagram.com/saed.m.abbas/",
-  },
-];
+  { id: "github", label: "GitHub", link: "https://github.com/SaedAbbas" },
+  { id: "linkedin", label: "LinkedIn", link: "https://www.linkedin.com/in/saed-abbas-3aa31916a/" },
+  { id: "facebook", label: "Facebook", link: "https://www.facebook.com/sa15ed" },
+  { id: "instagram", label: "Instagram", link: "https://www.instagram.com/saed.m.abbas/" },
+] as const;
 
-export const skills = [
-  { icon: "/html.png", label: "HTML" },
-  { icon: "/css.png", label: "Css" },
-  { icon: "/js.png", label: "JavaScript" },
-  { icon: "/ts.png", label: "TypeScript" },
-  { icon: "/react.png", label: "React" },
-  { icon: "/next.png", label: "Next.js" },
-  { icon: "/tailwind.png", label: "Tailwind CSS" },
-  { icon: "/framermotion.png", label: "Framer Motion" },
-  { icon: "/redux.png", label: "Redux Toolkit" },
-  { icon: "/reactquery.png", label: "Tanstack Query" },
-  { icon: "/zustand.png", label: "Zustand" },
-  { icon: "/strapi.png", label: "Strapi" },
-  { icon: "/git.png", label: "Git" },
-  { icon: "/githubb.png", label: "GitHub" },
-  { icon: "/figma.png", label: "Figma" },
+export const skillGroups = [
+  {
+    title: "Languages",
+    items: [
+      { icon: "/html.webp", label: "HTML5" },
+      { icon: "/css.webp", label: "CSS3" },
+      { icon: "/js.webp", label: "JavaScript" },
+      { icon: "/ts.webp", label: "TypeScript" },
+    ],
+  },
+  {
+    title: "Frameworks & UI",
+    items: [
+      { icon: "/react.webp", label: "React" },
+      { icon: "/next.webp", label: "Next.js" },
+      { icon: "/tailwind.webp", label: "Tailwind CSS" },
+      { icon: "/framermotion.webp", label: "Framer Motion" },
+    ],
+  },
+  {
+    title: "State & Data",
+    items: [
+      { icon: "/redux.webp", label: "Redux Toolkit" },
+      { icon: "/reactquery.webp", label: "TanStack Query" },
+      { icon: "/zustand.webp", label: "Zustand" },
+      { icon: "/strapi.webp", label: "Strapi" },
+    ],
+  },
+  {
+    title: "Tools",
+    items: [
+      { icon: "/git.webp", label: "Git" },
+      { icon: "/githubb.webp", label: "GitHub" },
+      { icon: "/figma.webp", label: "Figma" },
+    ],
+  },
 ];

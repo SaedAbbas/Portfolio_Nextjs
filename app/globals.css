@@ -1,244 +1,122 @@
 @import "tailwindcss";
 
-@config "../tailwind.config.ts";
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
-@theme inline {
-  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+  --color-bg: #07080d;
+  --color-surface: #0e1018;
+  --color-surface-2: #141725;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-fg: #eceef5;
+  --color-muted: #9aa0b4;
+  --color-accent: #7c5cff;
+  --color-accent-2: #a78bfa;
+
+  --animate-marquee: marquee var(--marquee-duration, 45s) linear infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes spotlight {
-  0% {
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+@keyframes fade-up {
+  from {
     opacity: 0;
-    transform: translate(-72%, -62%) scale(0.5);
+    transform: translateY(16px);
   }
-  100% {
+  to {
     opacity: 1;
-    transform: translate(-50%, -40%) scale(1);
+    transform: none;
   }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+::selection {
+  background: rgb(124 92 255 / 0.4);
 }
 
 @layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-20 sm:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-accent-2;
+  }
+
   .heading {
-    @apply font-bold text-4xl md:text-5xl text-center;
+    @apply mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl;
   }
-  * {
-    @apply !scroll-smooth;
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent;
   }
-}
 
-.particles-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+  }
 
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+  }
 
+  .btn-primary {
+    @apply bg-accent text-white hover:bg-[#6a47ff];
+  }
 
-
-
-
-
-
-
-:root {
-  --linear-ease: linear(0, 0.068, 0.19 2.7%, 0.804 8.1%, 1.037, 1.199 13.2%, 1.245, 1.27 15.8%, 1.274, 1.272 17.4%, 1.249 19.1%, 0.996 28%, 0.949, 0.928 33.3%, 0.926, 0.933 36.8%, 1.001 45.6%, 1.013, 1.019 50.8%, 1.018 54.4%, 1 63.1%, 0.995 68%, 1.001 85%, 1);
-}
-
-.gooey-nav-container {
-  position: relative;
-}
-
-.gooey-nav-container nav {
-  display: flex;
-  position: relative;
-  transform: translate3d(0, 0, 0.01px);
-}
-
-.gooey-nav-container nav ul {
-  display: flex;
-  gap: 2em;
-  list-style: none;
-  padding: 0 1em;
-  margin: 0;
-  position: relative;
-  z-index: 3;
-  color: white;
-  text-shadow: 0 1px 1px hsl(205deg 30% 10% / 0.2);
-}
-
-.gooey-nav-container nav ul li {
-  border-radius: 100vw;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 0.5px 1.5px transparent;
-  color: white;
-}
-
-.gooey-nav-container nav ul li a {
-  display: inline-block;
-  padding: 0.6em 1em;
-}
-
-.gooey-nav-container nav ul li:focus-within:has(:focus-visible) {
-  box-shadow: 0 0 0.5px 1.5px white;
-}
-
-.gooey-nav-container nav ul li::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 10px;
-  background: white;
-  opacity: 0;
-  transform: scale(0);
-  transition: all 0.3s ease;
-  z-index: -1;
-}
-
-.gooey-nav-container nav ul li.active {
-  color: black;
-  text-shadow: none;
-}
-
-.gooey-nav-container nav ul li.active::after {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.gooey-nav-container .effect {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 0;
-  opacity: 1;
-  pointer-events: none;
-  display: grid;
-  place-items: center;
-  z-index: 1;
-}
-
-.gooey-nav-container .effect.text {
-  color: white;
-  transition: color 0.3s ease;
-}
-
-.gooey-nav-container .effect.text.active {
-  color: black;
-}
-
-.gooey-nav-container .effect.filter {
-  filter: blur(7px) contrast(100) blur(0);
-  mix-blend-mode: lighten;
-}
-
-.gooey-nav-container .effect.filter::before {
-  content: "";
-  position: absolute;
-  inset: -75px;
-  z-index: -2;
-  background: black;
-}
-
-.gooey-nav-container .effect.filter::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: white;
-  transform: scale(0);
-  opacity: 0;
-  z-index: -1;
-  border-radius: 100vw;
-}
-
-.gooey-nav-container .effect.active::after {
-  animation: pill 0.3s ease both;
-}
-
-@keyframes pill {
-  to {
-    transform: scale(1);
-    opacity: 1;
+  .btn-ghost {
+    @apply border border-line text-fg hover:border-white/20 hover:bg-white/5;
   }
 }
 
-.particle,
-.point {
-  display: block;
-  opacity: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  transform-origin: center;
-}
-
-.particle {
-  --time: 5s;
-  position: absolute;
-  top: calc(50% - 8px);
-  left: calc(50% - 8px);
-  animation: particle calc(var(--time)) ease 1 -350ms;
-}
-
-.point {
-  background: var(--color);
-  opacity: 1;
-  animation: point calc(var(--time)) ease 1 -350ms;
-}
-
-@keyframes particle {
-  0% {
-    transform: rotate(0deg) translate(calc(var(--start-x)), calc(var(--start-y)));
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
-  }
-
-  70% {
-    transform: rotate(calc(var(--rotate) * 0.5)) translate(calc(var(--end-x) * 1.2), calc(var(--end-y) * 1.2));
-    opacity: 1;
-    animation-timing-function: ease;
-  }
-
-  85% {
-    transform: rotate(calc(var(--rotate) * 0.66)) translate(calc(var(--end-x)), calc(var(--end-y)));
-    opacity: 1;
-  }
-
-  100% {
-    transform: rotate(calc(var(--rotate) * 1.2)) translate(calc(var(--end-x) * 0.5), calc(var(--end-y) * 0.5));
-    opacity: 1;
+/* Scroll-driven reveal: pure CSS, zero JS. Browsers without support simply show content. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
   }
 }
 
-@keyframes point {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-
-  25% {
-    transform: scale(calc(var(--scale) * 0.25));
-  }
-
-  38% {
-    opacity: 1;
-  }
-
-  65% {
-    transform: scale(var(--scale));
-    opacity: 1;
-    animation-timing-function: ease;
-  }
-
-  85% {
-    transform: scale(var(--scale));
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(0);
-    opacity: 0;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

@@ -1,12 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-    eslint: {
-    ignoreDuringBuilds: true,
+  poweredByHeader: false,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
   },
-    typescript: {
-    ignoreBuildErrors: true,
+  experimental: {
+    optimizePackageImports: ["react-icons"],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 

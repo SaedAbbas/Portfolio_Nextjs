@@ -1,35 +1,47 @@
-import React from "react";
-import CircularGallery from "./ui/CircularGallery";
-import GlassIcons from "./ui/SkillsIcons";
-import { skills } from "@/data";
+import Image from "next/image";
+import { skillGroups } from "@/data";
+import SectionHeader from "./SectionHeader";
 
-const Skills = () => {
+export default function Skills() {
   return (
-    <div className="py-10 relative md:h-[600px]" id="skills">
-      <h1 className="heading max-md:hidden">
-        Core{" "}
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5010FE] to-[#A78BFA]">
-          Skills
-        </span>{" "}
-        & Expertise
-      </h1>
+    <section id="skills" className="section border-t border-line">
+      <div className="container-x">
+        <SectionHeader
+          eyebrow="Skills"
+          title="Tools I use to"
+          highlight="ship great products"
+          description="A modern front-end stack focused on performance, maintainability and a great developer experience."
+        />
 
-      <h1 className="md:hidden text-center text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#5010FE] to-[#8B5CF6]">
-        Core Skills & Expertise
-      </h1>
-
-      <CircularGallery
-        bend={4}
-        textColor="#ffffff"
-        borderRadius={0}
-        scrollEase={0.08}
-      />
-
-      <div className="md:hidden">
-        <GlassIcons skills={skills} className="custom-class" />
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {skillGroups.map((group) => (
+            <div key={group.title} className="reveal card p-5">
+              <h3 className="font-mono text-xs uppercase tracking-[0.18em] text-muted">
+                {group.title}
+              </h3>
+              <ul className="mt-4 space-y-2">
+                {group.items.map((skill) => (
+                  <li
+                    key={skill.label}
+                    className="flex items-center gap-3 rounded-xl border border-transparent px-2 py-2 transition-colors hover:border-line hover:bg-white/[0.03]"
+                  >
+                    <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-white/[0.04]">
+                      <Image
+                        src={skill.icon}
+                        alt=""
+                        width={22}
+                        height={22}
+                        className="size-[22px] object-contain"
+                      />
+                    </span>
+                    <span className="text-sm font-medium">{skill.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Skills;
+}
