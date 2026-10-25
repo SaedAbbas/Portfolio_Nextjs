@@ -1,57 +1,196 @@
-import { FiArrowUpRight, FiMail } from "react-icons/fi";
-import { navItems, siteConfig } from "@/data";
-import SocialLinks from "./SocialLinks";
+import { FaLocationArrow } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import { socialMedia } from "@/data";
+import MagicButton from "./ui/MagicButton";
+import ProfileCard from "./ui/ProfileCard";
 
-export default function Contact() {
+// Animation variants for staggered entrance
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+// مواقع ثابتة للجزيئات، والحركة بـ CSS (particle-pulse في globals.css)
+const particles = [
+  [8, 15], [22, 70], [35, 30], [47, 88], [58, 12],
+  [66, 55], [74, 80], [83, 25], [91, 62], [15, 45],
+];
+
+const Contact = () => {
   return (
-    <section id="contact" className="border-t border-line pt-20 sm:pt-28">
-      <div className="container-x">
-        <div className="reveal relative isolate overflow-hidden rounded-3xl border border-line bg-surface px-6 py-14 text-center sm:px-12 sm:py-20">
-          <div
-            aria-hidden
-            className="absolute inset-x-0 -top-40 -z-10 mx-auto h-80 w-[640px] max-w-full rounded-full bg-[radial-gradient(closest-side,rgb(124_92_255/0.35),transparent)]"
+    <footer
+      className="relative w-full pt-24 pb-12 overflow-hidden "
+      id="contact"
+    >
+      {/* Enhanced Background with Parallax Grid and Particles */}
+      <div className="absolute inset-0 -z-10 opacity-20">
+        <img
+          src="/footer-grid.svg"
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover animate-[subtle-move_10s_ease-in-out_infinite]"
+        />
+      </div>
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        {particles.map(([left, top], i) => (
+          <span
+            key={i}
+            className="absolute w-2 h-2 bg-[#5010FE] rounded-full"
+            style={{
+              left: `${left}%`,
+              top: `${top}%`,
+              animation: `particle-pulse 2s ease-in-out ${(i % 5) * 0.4}s infinite`,
+            }}
           />
-          <span className="eyebrow">Contact</span>
-          <h2 className="heading mx-auto max-w-2xl">
-            Have a project in mind? <span className="text-gradient">Let&apos;s build it together.</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted text-pretty sm:text-lg">
-            I&apos;m open to freelance work and full-time roles. Send me a message and
-            I&apos;ll get back to you as soon as possible.
-          </p>
-
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href={`mailto:${siteConfig.email}`} className="btn btn-primary w-full sm:w-auto">
-              <FiMail /> {siteConfig.email}
-            </a>
-            <a
-              href={siteConfig.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost w-full sm:w-auto"
-            >
-              View GitHub <FiArrowUpRight />
-            </a>
-          </div>
-
-          <SocialLinks className="mt-10 justify-center" />
-        </div>
+        ))}
       </div>
 
-      <footer className="container-x mt-20 flex flex-col items-center justify-between gap-6 border-t border-line py-8 text-sm text-muted md:flex-row">
-        <p>
-          © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+      {/* Main Content */}
+        {/* Header Section */}
+        <motion.div className="text-center mb-12" variants={itemVariants}>
+          <h1 className="max-md:hidden text-4xl sm:text-5xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+            Let’s Build Something Awesome - {" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5010FE] to-[#8B5CF6]">
+              Contact Me Now
+            </span>
+          </h1>
+          <h1 className="md:hidden text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#5010FE] to-[#8B5CF6]">
+              Contact Me Now
+          </h1>
+
+        </motion.div>
+      <motion.div
+        className="container relative mx-auto px-4 py-8 sm:px-6 lg:px-8  bg-gradient-to-b from-[#0a0e1f] to-[#1a1e3a] rounded-2xl"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+
+        {/* Main Content Split */}
+        <div className="flex flex-col-reverse lg:flex-row items-center lg:justify-between justify-center gap-12">
+          {/* Creative Left Section */}
+          <motion.div
+            className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
+            variants={itemVariants}
+          >
+            <motion.h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4"
+              variants={itemVariants}
+            >
+              Connect for Epic Collaborations
+            </motion.h2>
+            <motion.p
+              className="text-gray-400 text-sm sm:text-base mb-6 max-w-md"
+              variants={itemVariants}
+            >
+              Join me on a journey to transform your vision into reality with
+              cutting-edge solutions and creative brilliance.
+            </motion.p>
+            <motion.div variants={itemVariants}>
+              <MagicButton
+                title="Get in Touch"
+                icon={<FaLocationArrow />}
+                position="right"
+                handleClick={() =>
+                  (window.location.href = "mailto:saedabbas0@gmail.com")
+                }
+                className="bg-gradient-to-r from-[#5010FE] to-[#8B5CF6] hover:shadow-lg hover:shadow-[#5010FE]/50 transition-all duration-300"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Profile Card on the Right */}
+          <motion.div
+            className="w-full lg:w-1/2 flex justify-center lg:justify-end"
+            variants={itemVariants}
+          >
+            <div className="w-full  sm:max-w-[400px] flex items-center justify-center">
+              <ProfileCard
+                name="Saed Abbas"
+                title="Software Engineer"
+                handle="Abu Al Soos"
+                status="Online"
+                contactText="Contact Me"
+                avatarUrl="/saed2.webp"
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() =>
+                  (window.location.href = "mailto:saedabbas0@gmail.com")
+                }
+              />
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Footer Bottom */}
+      <motion.div
+        className="mt-16 flex flex-col md:flex-row max-md:flex-col-reverse justify-between items-center gap-8 border-t border-[#5010FE]/20 pt-8"
+        variants={itemVariants}
+      >
+        <p className="text-gray-400 text-sm sm:text-base font-light">
+          Copyright © {new Date().getFullYear()} Saed Abbas | All Rights
+          Reserved
         </p>
-        <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <a href={item.href} className="transition-colors hover:text-fg">
-                {item.label}
-              </a>
-            </li>
+        <div className="flex items-center gap-4">
+          {socialMedia.map((info) => (
+            <a
+              key={info.id}
+              href={info.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex justify-center items-center rounded-full bg-[#0a0e1f] border border-[#5010FE]/50 hover:bg-[#5010FE]/50 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-[#5010FE]/30"
+            >
+              <img
+                src={info.img}
+                alt=""
+                width={24}
+                height={24}
+                loading="lazy"
+                className="object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+              />
+            </a>
           ))}
-        </ul>
-      </footer>
-    </section>
+        </div>
+      </motion.div>
+
+      {/* Custom CSS for Animations */}
+      <style jsx>{`
+        @media (max-width: 1024px) {
+          .lg\\:flex-row {
+            flex-direction: column;
+          }
+          .lg\\:text-left {
+            text-align: center;
+          }
+          .lg\\:justify-end {
+            justify-content: center;
+          }
+        }
+      `}</style>
+    </footer>
   );
-}
+};
+
+export default Contact;
